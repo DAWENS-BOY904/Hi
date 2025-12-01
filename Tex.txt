@@ -1,1 +1,217 @@
-Koman mwen ka mande yon AI pou kreye yon shop ak payment secure real payment 9 mode payment srx api and admin dashboard moun ka order cancel order montre date order ap vini usps tracking order track id redeem code + link a mwen ka vann tenis plus ladann add 19categories open modal pou search ak all categories,all and lot etc…. Banm 15footer bgy serye Koman ka mandel an English add plus message poul tanku Temu 
+Hello — I would like to implement a complete e-commerce shop with the following features:
+
+⸻
+
+1) Shop & Products
+	•	Multi-category shop: at least 19 categories including Tennis, Apparel, Accessories, and more.
+	•	Each product includes: name, description, price, stock, SKU, images, optional video, and category.
+	•	Admin can create/edit/delete products.
+	•	Support product variants (size, color) and bundle products.
+	•	Support both physical and digital products (e.g., redeemable codes).
+
+2) Secure Payments
+	•	Implement a secure checkout with 9 payment methods:
+	1.	PayPal
+	2.	Stripe
+	3.	Apple Pay
+	4.	Google Pay
+	5.	Binance Pay
+	6.	Coinbase Commerce
+	7.	Paystack
+	8.	Flutterwave
+	9.	Bank Transfer
+	•	Payment must be secure and PCI-compliant.
+	•	Support sandbox mode for testing, live mode for production.
+	•	After payment, system automatically updates the order status and sends confirmation email.
+
+3) Checkout & Order Management
+	•	Users can place orders, view their order history.
+	•	Users can cancel orders if not shipped.
+	•	Admin dashboard:
+	•	View all orders, payment status, user info.
+	•	Edit order status (Pending, Processing, Shipped, Delivered, Cancelled).
+	•	Track shipments using USPS (or other carriers) with tracking ID.
+	•	Order history shows date placed, delivery estimates, and tracking info.
+
+4) Redeem Codes & Links
+	•	Admin can create redeem codes or redeem-by-link for discounts, coins, or products.
+	•	Each code/link supports:
+	•	Single/multiple uses
+	•	Expiry date
+	•	Product/category-specific redemption
+	•	Endpoint: /api/redeem/apply → validates and credits user automatically.
+
+5) Search Modal & Filtering
+	•	Open modal search across all products and categories.
+	•	Filters:
+	•	All categories, specific categories (19+)
+	•	Price range, popularity, new arrivals, discounts
+	•	User-friendly UI with auto-suggestions.
+
+6) Categories & Navigation
+	•	Shop supports category listing in top navigation and sidebar.
+	•	Highlight popular categories.
+	•	Admin can add/remove categories anytime.
+
+7) Admin Dashboard
+	•	Overview of sales, orders, customers, and inventory.
+	•	Analytics for revenue, popular products, and category performance.
+	•	Manage redeem codes, product inventory, and API access (if needed).
+	•	Export orders CSV, print invoices.
+
+8) API Integration
+	•	Provide public/private API endpoints for:
+	•	Product listing
+	•	Order creation and tracking
+	•	Redeem codes
+	•	Admin can generate API keys and restrict by product categories or actions.
+
+9) Footer
+	•	15 professional footer blocks (examples):
+	•	About Us, Contact, Help Center, Shipping & Returns, Privacy Policy, Terms of Service, Careers, Blog, Newsletter Signup, Social Media Links, Payment Methods, Affiliate Program, FAQs, Sitemap, Promotions.
+
+10) UX & Notifications
+	•	Users receive emails/SMS:
+	•	Order confirmation, shipping updates, canceled orders, redeemed codes.
+	•	Modal/alerts for out-of-stock or low-stock items.
+	•	Smooth checkout flow with loader, error messages, and success states.
+
+11) Example JSON — create redeem code
+POST /api/redeem/create
+{
+  "created_by":"admin_1",
+  "type":"discount",
+  "value":15,
+  "code":"SUMMER15",
+  "uses":100,
+  "expiry_date":"2026-12-31",
+  "metadata": { "product_scope":"tennis" }
+}
+
+12) Categories Example
+	•	Tennis Shoes
+	•	Tennis Apparel
+	•	Accessories
+	•	Electronics
+	•	Sports Equipment
+	•	Bags & Backpacks
+	•	Watches
+	•	Jewelry
+	•	Gadgets
+	•	Beauty & Health
+	•	Fitness Equipment
+	•	Mobile & Tablets
+	•	Laptops & Computers
+	•	Home & Kitchen
+	•	Toys & Games
+	•	Books & Media
+	•	Outdoors
+	•	Travel
+	•	Miscellaneous
+
+13) Open Modal for All Categories
+	•	Modal search with multi-select category filter and real-time search results.
+	•	Users can combine filters (e.g., “Tennis + Top Rated + Discount”).
+1) Login / Signup
+	•	Users can register and login using email and password.
+	•	Optional phone number verification during signup.
+	•	Verification process:
+	•	Send verification email code or SMS OTP.
+	•	User must enter code to activate account.
+	•	Password reset via verified email/phone.
+	•	2FA option for extra security.
+
+2) Seller / Store
+	•	Users can become sellers:
+	•	Seller registration requires:
+	•	Basic info (name, email, phone)
+	•	ID verification (passport, government ID, or card)
+	•	Optional business info (store name, tax ID)
+	•	Admin manually approves seller account.
+	•	Verified sellers can create a store to sell products:
+	•	Add products with images, descriptions, variants, and categories.
+	•	Set prices, stock, shipping options.
+	•	Enable redeem codes or discounts for their products.
+	•	Seller dashboard:
+	•	Track orders, revenue, refunds.
+	•	View order status, shipping, and tracking codes.
+	•	Cash-out earnings (manual approval by admin).
+
+3) API Access
+	•	Sellers can request API access to:
+	•	Add/manage products programmatically.
+	•	Retrieve orders and sales reports.
+	•	Integrate with external systems.
+	•	Admin generates API key and defines scope & permissions:
+	•	Product categories allowed
+	•	Actions allowed (read, write, update)
+	•	Rate limits
+	•	Admin can revoke or modify access anytime.
+
+4) Checkout & Payments
+	•	Full checkout page for buyers:
+	•	Accept multiple payment methods (real payments, not demo):
+	•	PayPal, Stripe, Apple Pay, Google Pay, Binance Pay, Coinbase Commerce, Paystack, Flutterwave, Bank Transfer.
+	•	Payment flow:
+	•	Secure collection of card or provider token
+	•	Verify payment with provider webhook
+	•	Update order status in dashboard
+	•	Send confirmation email/SMS to buyer
+	•	Support redeem codes / vouchers at checkout.
+
+5) Order Management
+	•	Buyers can:
+	•	Place orders
+	•	Cancel pending orders
+	•	Track shipped orders via USPS or other carriers
+	•	Sellers and admin can:
+	•	Update order status
+	•	View order details and history
+	•	Export CSV reports
+
+6) User / Seller Dashboard
+	•	Users: order history, redeem codes, account settings.
+	•	Sellers: store products, orders, revenue, API keys.
+	•	Admin: all products, all sellers, all orders, cash-out approvals, API access management.
+
+7) Security & Compliance
+	•	All PII encrypted.
+	•	Verify sellers before granting store/API access.
+	•	Secure HTTPS checkout and PCI-compliant payments.
+	•	Admin audit logs for all sensitive actions.
+
+8) Example JSON — API access request
+POST /api/seller/request-api
+{
+  "seller_id":"s_12345",
+  "requested_scope":["products","orders"],
+  "rate_limit":1000
+}
+Response:
+{
+  "api_key":"sk_live_abc123",
+  "secret":"secret_987",
+  "allowed_endpoints":["/api/products","/api/orders"],
+  "status":"approved"
+}
+
+9) Example JSON — Seller registration
+POST /api/seller/register
+{
+  "store_name":"My Tennis Store",
+  "owner_name":"John Doe",
+  "email":"john@example.com",
+  "phone":"+123456789",
+  "id_document":"passport.jpg",
+  "business_tax_id":"123-456"
+}
+Response:
+{
+  "seller_id":"s_12345",
+  "status":"pending_verification",
+  "message":"Admin approval required"
+}
+10) Optional UI / UX Features
+	•	Modal for login/signup with email & phone verification.
+	•	Open modal for search products or categories.
+	•	Footer blocks for info, social links, payment methods, terms, privacy policy add 20 footer.
